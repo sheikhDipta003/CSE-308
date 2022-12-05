@@ -1,19 +1,15 @@
 package offline_1_q1;
 
 interface PCBuilder{
+    void addBase();
     void addProcessor();
-    void setProcessorPrice();
     void addCPU();
     void addMB();
     void addHDD();
-    void setBasePrince();
     void addCPUCooler();
-    void setCPUCoolerPrice();
-    void liquidCooler();
-    void LiquidCoolerPrice();
+    void addLiquidCooler();
     void addDrive();
-    void setDrivePrice();
-    void addRAM();
-    void addGraphicsCard();
+    int addRAM();
+    int addGraphicsCard();
     PC getPC();
 }

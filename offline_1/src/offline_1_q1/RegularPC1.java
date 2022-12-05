@@ -6,110 +6,98 @@ public class RegularPC1 implements PCBuilder{
 
     @Override
     public void addProcessor() {
-        pc.add("11th Gen Intel Core i5");
-    }
-
-    @Override
-    public void setProcessorPrice() {
-        pc.add("20000");
+        pc.add(new PCpart("11th Gen Intel, Core i5", 20000, 1));
     }
 
     @Override
     public void addCPU() {
-        pc.add("CPU-type1");
+        pc.add(new PCpart("CPU-Gaming", 0, 1));
     }
 
     @Override
     public void addMB() {
-        pc.add("CPU-type2");
+        pc.add(new PCpart("MB-Gaming", 0, 1));
     }
 
     @Override
     public void addHDD() {
-        pc.add("1TB");
+        pc.add(new PCpart("1TB HDD", 0, 1));
     }
 
     @Override
-    public void setBasePrince() {
-        pc.add("70000");
+    public void addBase() {
+        pc.add(new PCpart("Base", 70000, 1));
     }
 
     @Override
     public void addCPUCooler() {
-        pc.add("CPU cooler");
+        pc.add(new PCpart("CPU Cooler", 36000, 1));
     }
 
     @Override
-    public void setCPUCoolerPrice() {
-        pc.add("36000");
-    }
-
-    @Override
-    public void liquidCooler() {
-        pc.add("Liquid cooler");
-    }
-
-    @Override
-    public void LiquidCoolerPrice() {
-        pc.add("0");
+    public void addLiquidCooler() {
+        pc.add(new PCpart("Liquid cooler", 17000, 0));
     }
 
     @Override
     public void addDrive() {
-        pc.add("DVD Drive");
+        pc.add(new PCpart("DVD drive", 6000, 0));
     }
 
     @Override
-    public void setDrivePrice() {
-        pc.add("0");
-    }
-
-    @Override
-    public void addRAM() {
+    public int addRAM() {
         int count1 = 0, count2 = 0;
-        pc.add("2666 MHz");
-        pc.add("3200 MHz");
 
         while(true){
             System.out.print("RAM: ");
             Scanner scanner = new Scanner(System.in);
             String RAMType = scanner.nextLine();
-            if(RAMType.equalsIgnoreCase("skip"))    break;
+            if(RAMType.equalsIgnoreCase("O")){
+                System.out.println("Cannot place another order while current one is not complete");
+            }
+            else if(RAMType.equalsIgnoreCase("E"))    break;
             else if (RAMType.equalsIgnoreCase("2666 MHz")) {
                 count1++;
             } else if (RAMType.equalsIgnoreCase("3200 MHz")) {
                 count2++;
             }
+            else{
+                System.out.println("Wrong type. Either '2666 MHz' or '3200 MHz'");
+            }
         }
 
-        pc.add(String.valueOf(count1));
-        pc.add(String.valueOf(count2));
-        pc.add("2620");
-        pc.add("2950");
+        pc.add(new PCpart("2666 MHz", 2620, count1));
+        pc.add(new PCpart("3200 MHz", 2950, count2));
+
+        return (count1 + count2);
     }
 
     @Override
-    public void addGraphicsCard() {
+    public int addGraphicsCard() {
         int count1 = 0, count2 = 0;
-        pc.add("2GB");
-        pc.add("4GB");
 
         while(true){
             System.out.print("Graphics Card: ");
             Scanner scanner = new Scanner(System.in);
-            String RAMType = scanner.nextLine();
-            if(RAMType.equalsIgnoreCase("skip"))    break;
-            else if (RAMType.equalsIgnoreCase("2GB")) {
+            String GCType = scanner.nextLine();
+            if(GCType.equalsIgnoreCase("O")){
+                System.out.println("Cannot place another order while current one is not complete");
+            }
+            else if(GCType.equalsIgnoreCase("E"))    break;
+            else if (GCType.equalsIgnoreCase("2GB")) {
                 count1++;
-            } else if (RAMType.equalsIgnoreCase("4GB")) {
+            } else if (GCType.equalsIgnoreCase("4GB")) {
                 count2++;
+            }
+            else{
+                System.out.println("Wrong type. Either '2GB' or '4GB'");
             }
         }
 
-        pc.add(String.valueOf(count1));
-        pc.add(String.valueOf(count2));
-        pc.add("6500");
-        pc.add("7600");
+        pc.add(new PCpart("2GB", 6500, count1));
+        pc.add(new PCpart("4GB", 7600, count2));
+
+        return (count1 + count2);
     }
 
     @Override
