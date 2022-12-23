@@ -13,11 +13,7 @@ public class NoQuarterState implements State {
 	}
  
 	public void ejectExcessAmount() {
-		int excess = vendingMachine.getAmountGiven() - vendingMachine.getPrice();
-		if(excess > 0){
-			System.out.println("Excess amount ejected: " + excess + " cents.");
-			vendingMachine.setAmount(0);
-		}
+		System.out.println("There is no quarter to eject.");
 	}
 
 	@Override

@@ -31,10 +31,12 @@ public class VendingMachine {
 		state.insertAmount();
 
 		state.promptForExactAmount();
-		if(state == soldState)	state.dispense();
-		if(state == noQuarterState)	state.ejectExcessAmount();
+		if(state == soldState){
+			state.ejectExcessAmount();
+			state.dispense();
+		}
 
-		return state == noQuarterState;
+		return state == soldOutState;
 	}
  
 	public void ejectExcessAmount() {

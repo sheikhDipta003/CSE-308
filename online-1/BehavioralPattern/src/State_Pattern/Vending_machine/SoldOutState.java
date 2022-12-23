@@ -22,9 +22,7 @@ public class SoldOutState implements State {
 	@Override
 	public void promptForExactAmount() {}
 
-	public void dispense() {
-		System.out.println("No cold drink dispensed");
-	}
+	public void dispense() {}
 	
 	public void refill() { 
 		vendingMachine.setState(vendingMachine.getNoQuarterState());

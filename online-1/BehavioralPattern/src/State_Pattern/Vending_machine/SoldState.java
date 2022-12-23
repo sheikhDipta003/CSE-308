@@ -12,7 +12,11 @@ public class SoldState implements State {
 	}
  
 	public void ejectExcessAmount() {
-		System.out.println("Sorry, order cannot be taken back.");
+		int excess = vendingMachine.getAmountGiven() - vendingMachine.getPrice();
+		if(excess > 0){
+			System.out.println("Excess amount ejected: " + excess + " cents.");
+			vendingMachine.setAmount(0);
+		}
 	}
 
 	@Override
