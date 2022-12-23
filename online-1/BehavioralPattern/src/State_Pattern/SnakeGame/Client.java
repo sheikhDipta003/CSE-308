@@ -1,4 +1,4 @@
-package State_Pattern;
+package State_Pattern.SnakeGame;
 
 public class Client {
     public static void main(String[] args) {

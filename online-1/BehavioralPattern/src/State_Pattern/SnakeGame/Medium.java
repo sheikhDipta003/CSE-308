@@ -1,4 +1,4 @@
-package State_Pattern;
+package State_Pattern.SnakeGame;
 
 public class Medium implements State{
     private Context cxt;

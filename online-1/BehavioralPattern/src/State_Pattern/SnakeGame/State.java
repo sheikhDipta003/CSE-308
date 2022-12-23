@@ -1,4 +1,4 @@
-package State_Pattern;
+package State_Pattern.SnakeGame;
 
 interface State {
     Snake snake = new Snake();
