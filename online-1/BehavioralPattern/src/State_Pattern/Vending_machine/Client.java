@@ -22,7 +22,6 @@ public class Client {
 					System.out.print("Enter number of cold drinks: ");
 					vendingMachine.refill(Integer.parseInt(scanner.nextLine()));
 				}
-				else break;
 			}
 		}
 	}
